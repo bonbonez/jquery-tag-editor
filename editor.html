@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <script type="text/javascript" src="D:\dev\mjl\packages\libs\modules\jquery.js"></script>
+        <script type="text/javascript" src="./all2.js"></script>
+
+        <link rel="stylesheet" href="./all2.css" type="text/css" />
+
+        <style type="text/css">
+            html, body {
+                margin: 0;
+                padding: 10px;
+            }
+            .clear {
+                font-size: 0;
+                line-height: 0;
+                clear: both;
+            }
+
+            #tagEditor {
+                border: 1px solid #e5e5e5;
+                border-radius: 5px;
+                height: 50px;
+                padding: 7px;
+                width: 400px;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            $(window).ready(function(){
+
+                var tags = [
+                    {
+                        'name': 'sneakers',
+                        'uuid': '123'
+                    },{
+                        'name': 'phone',
+                        'uuid': '129'
+                    },{
+                        'name': 'stick',
+                        'uuid': '442'
+                    }
+                ];
+
+                $('#tagEditor').tagEditor({
+                    style: {
+                        holder: {
+                            'height': 'auto'
+                        }
+                    },
+                    autocomplete: {
+                        data: tags
+                    },
+                    dataFormat: {
+                        'value': 'name',
+                        'uuid' : 'uuid'
+                    }
+                });
+
+                $(document).bind('click',function(){
+                    console.log($('#tagEditor').tagEditor.get());
+                })
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+
+        <div id="tagEditor"></div>
+
+        <!--<div id="tag-editor-autocomplete-box">
+            <div>tag</div>
+            <div>another tag</div>
+            <div>long tag</div>
+        </div>-->
+
+
+    </body>
+</html>
